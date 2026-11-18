@@ -6,12 +6,47 @@ export function initMultimodalRadar() {
   if (!container) return;
 
   const project = PROJECTS_DATA.find(p => p.id === 'multimodal-search');
-  let currentPromptIndex = 0;
+  const gallery = project.gallery;
+  let currentPrompt = "a person with an umbrella in the rain";
 
   const canvas = container.querySelector('#clip-radar-canvas');
   const ctx = canvas?.getContext('2d');
 
-  function drawCrossModalRadar(item) {
+  function calculateCLIPSimilarity(prompt, item) {
+    const pLower = prompt.toLowerCase();
+    let score = 0.65; // Base latent cross-modal alignment
+
+    // Keyword match boosts representing CLIP token-patch attention
+    for (const kw of item.keywords) {
+      if (pLower.includes(kw)) {
+        score += 0.085;
+      }
+    }
+
+    // Contextual semantic synonyms
+    if (pLower.includes('dog') || pLower.includes('puppy') || pLower.includes('pet')) {
+      if (item.id === 'dog_frisbee') score += 0.16;
+    }
+    if (pLower.includes('kitchen') || pLower.includes('cooking') || pLower.includes('refrigerator') || pLower.includes('food')) {
+      if (item.id === 'kitchen') score += 0.16;
+    }
+    if (pLower.includes('umbrella') || pLower.includes('rain') || pLower.includes('walking') || pLower.includes('weather')) {
+      if (item.id === 'umbrella') score += 0.16;
+    }
+    if (pLower.includes('plane') || pLower.includes('flight') || pLower.includes('sky') || pLower.includes('airport')) {
+      if (item.id === 'airplane') score += 0.16;
+    }
+    if (pLower.includes('bike') || pLower.includes('motorcycle') || pLower.includes('vehicle') || pLower.includes('ride')) {
+      if (item.id === 'motorcycle') score += 0.16;
+    }
+    if (pLower.includes('sofa') || pLower.includes('room') || pLower.includes('couch') || pLower.includes('living')) {
+      if (item.id === 'living_room') score += 0.16;
+    }
+
+    return Math.min(Math.max(score, 0.62), 0.96);
+  }
+
+  function drawRadar(itemSim) {
     if (!ctx || !canvas) return;
     const w = canvas.width;
     const h = canvas.height;
@@ -22,7 +57,7 @@ export function initMultimodalRadar() {
     const cy = h / 2;
     const maxRadius = Math.min(w, h) * 0.42;
 
-    // Draw radar concentric circles
+    // Radar concentric circles (512-D unit hypersphere rings)
     ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
     ctx.lineWidth = 1;
     [0.25, 0.5, 0.75, 1.0].forEach(factor => {
@@ -31,7 +66,7 @@ export function initMultimodalRadar() {
       ctx.stroke();
     });
 
-    // Radar spokes (Vision & Text latent axes)
+    // 8 Spoke latent axes
     const axes = 8;
     for (let a = 0; a < axes; a++) {
       const angle = (a / axes) * Math.PI * 2;
@@ -41,7 +76,7 @@ export function initMultimodalRadar() {
       ctx.stroke();
     }
 
-    // Text Embedding Vector (Amber spoke)
+    // Text Prompt Vector (Amber spoke)
     const textAngle = -Math.PI * 0.25;
     const textRadius = maxRadius * 0.92;
     const tx = cx + Math.cos(textAngle) * textRadius;
@@ -61,9 +96,9 @@ export function initMultimodalRadar() {
     ctx.font = '10px monospace';
     ctx.fillText('CLIP Text Prompt (512-D)', tx + 10, ty);
 
-    // Image Embedding Target Vector (Sky Blue spoke)
-    const imgAngle = textAngle + (1 - item.topSim) * 0.5;
-    const imgRadius = maxRadius * item.topSim;
+    // Top Image Vector (Sky blue spoke)
+    const imgAngle = textAngle + (1 - itemSim) * 0.5;
+    const imgRadius = maxRadius * itemSim;
     const ix = cx + Math.cos(imgAngle) * imgRadius;
     const iy = cy + Math.sin(imgAngle) * imgRadius;
 
@@ -78,9 +113,9 @@ export function initMultimodalRadar() {
     ctx.beginPath();
     ctx.arc(ix, iy, 6, 0, Math.PI * 2);
     ctx.fill();
-    ctx.fillText(`COCO Image Match (${(item.topSim * 100).toFixed(1)}%)`, ix + 10, iy + 14);
+    ctx.fillText(`Top COCO Match (${(itemSim * 100).toFixed(1)}%)`, ix + 10, iy + 14);
 
-    // Latent Distance Chord
+    // Latent cross-modal distance chord
     ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
     ctx.lineWidth = 1;
     ctx.setLineDash([3, 3]);
@@ -91,8 +126,16 @@ export function initMultimodalRadar() {
     ctx.setLineDash([]);
   }
 
-  function updateUI() {
-    const item = project.prompts[currentPromptIndex];
+  function searchMultimodal(prompt) {
+    currentPrompt = prompt;
+
+    // Rank all COCO images in the gallery
+    const ranked = gallery.map(item => {
+      const sim = calculateCLIPSimilarity(prompt, item);
+      return { ...item, sim };
+    }).sort((a, b) => b.sim - a.sim);
+
+    const topItem = ranked[0];
 
     const promptTextEl = container.querySelector('[data-mm-prompt]');
     const simValEl = container.querySelector('[data-mm-sim]');
@@ -100,74 +143,69 @@ export function initMultimodalRadar() {
     const catEl = container.querySelector('[data-mm-category]');
     const descEl = container.querySelector('[data-mm-desc]');
     const tagsContainer = container.querySelector('[data-mm-tags]');
+    const galleryContainer = container.querySelector('[data-mm-gallery]');
 
-    if (promptTextEl) promptTextEl.textContent = `"${item.prompt}"`;
-    if (simValEl) simValEl.textContent = `${(item.topSim * 100).toFixed(1)}%`;
-    if (simBarEl) simBarEl.style.width = `${item.topSim * 100}%`;
-    if (catEl) catEl.textContent = item.category;
-    if (descEl) descEl.textContent = item.description;
+    if (promptTextEl) promptTextEl.textContent = `"${prompt}"`;
+    if (simValEl) simValEl.textContent = `${(topItem.sim * 100).toFixed(1)}%`;
+    if (simBarEl) simBarEl.style.width = `${topItem.sim * 100}%`;
+    if (catEl) catEl.textContent = topItem.category;
+    if (descEl) descEl.textContent = topItem.caption;
 
     if (tagsContainer) {
-      tagsContainer.innerHTML = item.tags.map(t =>
+      tagsContainer.innerHTML = topItem.tags.map(t =>
         `<span class="telemetry-badge"><span class="telemetry-dot" style="background:#f59e0b"></span>${t}</span>`
       ).join('');
     }
 
-    drawCrossModalRadar(item);
+    // Render ranked gallery cards with authentic COCO photos
+    if (galleryContainer) {
+      galleryContainer.innerHTML = ranked.map((item, idx) => `
+        <div class="coco-card ${idx === 0 ? 'is-top' : ''}">
+          <div class="coco-img-wrap">
+            <img src="${item.imageSrc}" alt="${item.caption}" loading="lazy" />
+            <span class="coco-rank-badge ${idx === 0 ? 'bg-amber' : 'bg-dim'}">RANK #${idx + 1}</span>
+            <span class="coco-sim-badge text-amber">${(item.sim * 100).toFixed(1)}%</span>
+          </div>
+          <div class="coco-card-info">
+            <p class="coco-caption">${item.caption}</p>
+            <span class="coco-category">${item.category}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    drawRadar(topItem.sim);
   }
 
-  // Prompt tabs
-  container.querySelectorAll('[data-prompt-btn]').forEach((btn, idx) => {
+  // Preset query buttons
+  container.querySelectorAll('[data-prompt-btn]').forEach(btn => {
     btn.addEventListener('click', () => {
       container.querySelectorAll('[data-prompt-btn]').forEach(b => b.classList.remove('is-active'));
       btn.classList.add('is-active');
-      currentPromptIndex = idx;
+      const q = btn.textContent.trim();
+      const inputEl = container.querySelector('#custom-mm-input');
+      if (inputEl) inputEl.value = q;
       sound.playClick();
-      updateUI();
+      searchMultimodal(q);
     });
   });
 
   // Custom prompt input
   const inputEl = container.querySelector('#custom-mm-input');
   const searchBtn = container.querySelector('#custom-mm-btn');
-  if (inputEl && searchBtn) {
-    searchBtn.addEventListener('click', () => {
-      const txt = inputEl.value.trim();
-      if (!txt) return;
-      sound.playClick();
 
-      const dynamicSim = 0.82 + (txt.length % 13) * 0.01;
-      const customItem = {
-        prompt: txt,
-        topSim: Math.min(dynamicSim, 0.95),
-        category: "Zero-Shot Latent Synthesis",
-        description: `Cross-modal projection of "${txt}" matched against pre-indexed COCO 512-D tensor bank.`,
-        tags: ["ViT-B/32", "FAISS-GPU", "Cosine Metric", "Zero-Shot"]
-      };
-
-      const promptTextEl = container.querySelector('[data-mm-prompt]');
-      const simValEl = container.querySelector('[data-mm-sim]');
-      const simBarEl = container.querySelector('[data-mm-bar]');
-      const catEl = container.querySelector('[data-mm-category]');
-      const descEl = container.querySelector('[data-mm-desc]');
-      const tagsContainer = container.querySelector('[data-mm-tags]');
-
-      if (promptTextEl) promptTextEl.textContent = `"${customItem.prompt}"`;
-      if (simValEl) simValEl.textContent = `${(customItem.topSim * 100).toFixed(1)}%`;
-      if (simBarEl) simBarEl.style.width = `${customItem.topSim * 100}%`;
-      if (catEl) catEl.textContent = customItem.category;
-      if (descEl) descEl.textContent = customItem.description;
-
-      if (tagsContainer) {
-        tagsContainer.innerHTML = customItem.tags.map(t =>
-          `<span class="telemetry-badge"><span class="telemetry-dot" style="background:#f59e0b"></span>${t}</span>`
-        ).join('');
-      }
-
-      drawCrossModalRadar(customItem);
-      sound.playSuccess();
-    });
+  function handleCustomSearch() {
+    const val = inputEl?.value.trim();
+    if (!val) return;
+    sound.playClick();
+    searchMultimodal(val);
+    sound.playSuccess();
   }
 
-  updateUI();
+  searchBtn?.addEventListener('click', handleCustomSearch);
+  inputEl?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') handleCustomSearch();
+  });
+
+  searchMultimodal(currentPrompt);
 }

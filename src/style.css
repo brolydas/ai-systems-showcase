@@ -1327,6 +1327,274 @@ code, kbd, pre, .mono {
   background: var(--bg-elev-1);
 }
 
+/* Real Dataset Testers Additional Styling */
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.toggle-pill {
+  background: var(--bg-elev-2);
+  border: 1px solid var(--line-strong);
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all var(--dur-fast);
+}
+.toggle-pill.is-active {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: var(--accent-emerald);
+  color: var(--accent-emerald);
+}
+
+.upload-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  background: var(--bg-elev-2);
+  border: 1px dashed var(--line-strong);
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  margin-bottom: 1.2rem;
+}
+.upload-bar input[type="file"] {
+  display: none;
+}
+.upload-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent-indigo);
+  transition: color var(--dur-fast);
+}
+.upload-label:hover {
+  color: var(--ink);
+}
+.upload-note {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--ink-dim);
+}
+
+/* 5-Class Probability Distribution */
+.prob-distribution-box {
+  background: var(--bg-elev-2);
+  border: 1px solid var(--line);
+  padding: 0.8rem;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0.4rem 0;
+}
+.prob-header {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--ink-dim);
+}
+.prob-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.prob-row {
+  display: grid;
+  grid-template-columns: 140px 1fr 45px;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+}
+.prob-name {
+  color: var(--ink-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.prob-bar-track {
+  width: 100%;
+  height: 4px;
+  background: var(--line);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.prob-bar-fill {
+  height: 100%;
+  transition: width 0.3s var(--ease-out);
+}
+.prob-val {
+  text-align: right;
+  color: var(--ink);
+  font-weight: 600;
+}
+.bg-dim {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Retrieval Real Results List */
+.retrieval-comparison-layout {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 1.2rem;
+}
+@media (max-width: 900px) {
+  .retrieval-comparison-layout {
+    grid-template-columns: 1fr;
+  }
+}
+.column-header {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.8rem;
+}
+.retrieval-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.retrieval-item {
+  background: var(--bg-elev-2);
+  border: 1px solid var(--line);
+  padding: 0.9rem;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.retrieval-item__header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+}
+.rank-tag {
+  background: var(--bg-elev-3);
+  padding: 0.15rem 0.45rem;
+  border-radius: 3px;
+  color: var(--ink);
+  font-weight: 600;
+}
+.rank-tag.rank-1 {
+  background: var(--accent-indigo);
+  color: #050714;
+}
+.score-tag {
+  font-weight: 600;
+}
+.category-tag {
+  color: var(--ink-dim);
+  margin-left: auto;
+}
+.retrieval-text {
+  font-size: 0.78rem;
+  color: var(--ink);
+  line-height: 1.4;
+}
+.retrieval-answer {
+  font-size: 0.75rem;
+  color: var(--accent-emerald);
+  line-height: 1.4;
+}
+.bm25-desc-note {
+  font-size: 0.72rem;
+  color: var(--ink-dim);
+  margin-top: -0.2rem;
+}
+
+/* MS-COCO Gallery */
+.coco-gallery-section {
+  margin-top: 1.8rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+.coco-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+.coco-card {
+  background: var(--bg-elev-2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--dur-fast), border-color var(--dur-fast);
+}
+.coco-card.is-top {
+  border-color: var(--accent-amber);
+  box-shadow: 0 0 16px var(--accent-amber-glow);
+}
+.coco-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #000;
+  overflow: hidden;
+}
+.coco-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.coco-rank-badge {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.2rem 0.45rem;
+  border-radius: 3px;
+  color: #0b0d14;
+}
+.coco-sim-badge {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid var(--line);
+  padding: 0.2rem 0.45rem;
+  border-radius: 3px;
+}
+.coco-card-info {
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+.coco-caption {
+  font-size: 0.75rem;
+  color: var(--ink);
+  line-height: 1.4;
+  flex: 1;
+}
+.coco-category {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--accent-amber);
+}
+
 /* Reduced Motion Mode */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

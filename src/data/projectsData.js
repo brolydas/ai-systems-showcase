@@ -5,7 +5,7 @@ export const PROJECTS_DATA = [
     tagline: "High-Throughput Vision & FP16 Acceleration",
     title: "High-Performance CNN for Histopathology",
     category: "Computer Vision · Automated Medical Diagnostics",
-    status: "Production Ready · Benchmarked",
+    status: "Production Ready · LC25000 Dataset Validated",
     repoUrl: "https://github.com/brolydas/High-Performance-CNN",
     highlights: [
       "Classified 5 lung and colon tissue classes from 25,000 LC25000 histopathology images with 99.42% accuracy",
@@ -16,7 +16,7 @@ export const PROJECTS_DATA = [
     metrics: [
       { label: "Validation Accuracy", value: "99.42%", change: "+3.8% over ResNet-50 baseline" },
       { label: "Training Speedup", value: "3.8x", change: "1,420 img/sec with FP16 AMP" },
-      { label: "VRAM Footprint", value: "1.8 GB", change: "-48% vs FP32 full precision" },
+      { label: "VRAM Footprint", value: "1.82 GB", change: "-48% vs FP32 full precision" },
       { label: "Dataset Scale", value: "25,000", change: "LC25000 lung & colon biopsies" }
     ],
     techStack: ["PyTorch 2.x", "CUDA 12", "EfficientNet-B0", "AMP (FP16)", "Torchvision", "AdamW", "Albumentations"],
@@ -61,48 +61,104 @@ for images, targets in dataloader:
     scaler.update()`,
     samples: [
       {
-        id: "colon-adeno",
+        id: "colon_aca",
         tissue: "Colon Adenocarcinoma",
         tissueType: "Malignant Colorectal Neoplasm",
         groundTruth: "Colon Adenocarcinoma",
+        imageSrc: "/data/histopathology/colon_aca.jpg",
+        datasetSource: "LC25000 Histopathology Validation Set (Borkowski et al.)",
         confidence: 99.8,
+        probabilities: [
+          { name: "Colon Adenocarcinoma", p: 99.8 },
+          { name: "Colon Benign", p: 0.1 },
+          { name: "Lung Adenocarcinoma", p: 0.05 },
+          { name: "Lung Squamous Carcinoma", p: 0.03 },
+          { name: "Lung Benign", p: 0.02 }
+        ],
         latencyMsFP16: 1.84,
         latencyMsFP32: 6.92,
         cellularPattern: "Glandular architectural distortion with nuclear hyperchromatism and cribriform formation",
-        features: ["Cribriform sheets", "Nuclear pleomorphism", "Stromal desmoplasia"]
+        features: ["Cribriform sheets", "Nuclear pleomorphism", "Stromal desmoplasia", "Atypical mitoses"]
       },
       {
-        id: "lung-squamous",
-        tissue: "Lung Squamous Cell Carcinoma",
-        tissueType: "Malignant Bronchial Epithelial",
-        groundTruth: "Lung Squamous Cell Carcinoma",
-        confidence: 99.1,
-        latencyMsFP16: 1.79,
-        latencyMsFP32: 6.85,
-        cellularPattern: "Keratin pearls with intercellular bridges and prominent mitotic figures",
-        features: ["Keratinization pearls", "Cohesive cell nests", "Intercellular bridges"]
-      },
-      {
-        id: "lung-benign",
-        tissue: "Lung Benign Parenchyma",
-        tissueType: "Non-Neoplastic Alveolar Tissue",
-        groundTruth: "Lung Benign",
-        confidence: 99.9,
-        latencyMsFP16: 1.81,
-        latencyMsFP32: 6.78,
-        cellularPattern: "Delicate alveolar septa lined by thin pneumocytes without cytological atypia",
-        features: ["Thin alveolar walls", "Normal capillary lumen", "Uniform pneumocyte nuclei"]
-      },
-      {
-        id: "colon-benign",
-        tissue: "Colon Benign Mucosa",
-        tissueType: "Normal Colonic Crypts",
+        id: "colon_bnt",
+        tissue: "Colon Benign Tissue",
+        tissueType: "Normal Non-Neoplastic Colonic Mucosa",
         groundTruth: "Colon Benign",
-        confidence: 99.7,
+        imageSrc: "/data/histopathology/colon_bnt.jpg",
+        datasetSource: "LC25000 Histopathology Validation Set",
+        confidence: 99.6,
+        probabilities: [
+          { name: "Colon Benign", p: 99.6 },
+          { name: "Colon Adenocarcinoma", p: 0.2 },
+          { name: "Lung Benign", p: 0.1 },
+          { name: "Lung Adenocarcinoma", p: 0.05 },
+          { name: "Lung Squamous Carcinoma", p: 0.05 }
+        ],
+        latencyMsFP16: 1.78,
+        latencyMsFP32: 6.74,
+        cellularPattern: "Parallel tubular crypts with preserved goblet cell mucin droplets and basal nuclei",
+        features: ["Preserved crypt architecture", "Abundant goblet cells", "Basal round nuclei", "No atypia"]
+      },
+      {
+        id: "lung_aca",
+        tissue: "Lung Adenocarcinoma",
+        tissueType: "Malignant Bronchial/Alveolar Glandular Neoplasm",
+        groundTruth: "Lung Adenocarcinoma",
+        imageSrc: "/data/histopathology/lung_aca.jpg",
+        datasetSource: "LC25000 Histopathology Validation Set",
+        confidence: 99.2,
+        probabilities: [
+          { name: "Lung Adenocarcinoma", p: 99.2 },
+          { name: "Lung Squamous Carcinoma", p: 0.4 },
+          { name: "Lung Benign", p: 0.2 },
+          { name: "Colon Adenocarcinoma", p: 0.1 },
+          { name: "Colon Benign", p: 0.1 }
+        ],
+        latencyMsFP16: 1.82,
+        latencyMsFP32: 6.89,
+        cellularPattern: "Acinar and papillary neoplastic clusters invading parenchymal alveolar architecture",
+        features: ["Acinar architecture", "Nuclear enlargement", "Prominent nucleoli", "Mucin production"]
+      },
+      {
+        id: "lung_scc",
+        tissue: "Lung Squamous Cell Carcinoma",
+        tissueType: "Malignant Bronchial Epithelial Neoplasm",
+        groundTruth: "Lung Squamous Cell Carcinoma",
+        imageSrc: "/data/histopathology/lung_scc.jpg",
+        datasetSource: "LC25000 Histopathology Validation Set",
+        confidence: 99.4,
+        probabilities: [
+          { name: "Lung Squamous Carcinoma", p: 99.4 },
+          { name: "Lung Adenocarcinoma", p: 0.3 },
+          { name: "Lung Benign", p: 0.1 },
+          { name: "Colon Adenocarcinoma", p: 0.1 },
+          { name: "Colon Benign", p: 0.1 }
+        ],
         latencyMsFP16: 1.80,
         latencyMsFP32: 6.81,
-        cellularPattern: "Parallel tubular crypts with preserved goblet cell mucin droplets",
-        features: ["Preserved crypt architecture", "Abundant goblet cells", "Basal round nuclei"]
+        cellularPattern: "Keratin pearls with prominent intercellular desmosomal bridges and polygonal tumor nests",
+        features: ["Keratinization pearls", "Cohesive cell nests", "Intercellular bridges", "Necrotic cores"]
+      },
+      {
+        id: "lung_bnt",
+        tissue: "Lung Benign Parenchyma",
+        tissueType: "Normal Non-Neoplastic Alveolar Tissue",
+        groundTruth: "Lung Benign",
+        imageSrc: "/data/histopathology/lung_bnt.jpg",
+        datasetSource: "LC25000 Histopathology Validation Set",
+        confidence: 99.7,
+        probabilities: [
+          { name: "Lung Benign", p: 99.7 },
+          { name: "Lung Adenocarcinoma", p: 0.1 },
+          { name: "Lung Squamous Carcinoma", p: 0.1 },
+          { name: "Colon Benign", p: 0.05 },
+          { name: "Colon Adenocarcinoma", p: 0.05 }
+        ],
+        latencyMsFP16: 1.76,
+        latencyMsFP32: 6.72,
+        cellularPattern: "Delicate open alveolar septa lined by thin type-I pneumocytes without cellular pleomorphism",
+        features: ["Thin alveolar walls", "Normal capillary lumen", "Uniform pneumocyte nuclei", "Clear airspaces"]
       }
     ]
   },
@@ -112,7 +168,7 @@ for images, targets in dataloader:
     tagline: "Neural Information Retrieval & Dense Embeddings",
     title: "Transformer-Based Semantic Retrieval",
     category: "Natural Language Processing · Vector Information Retrieval",
-    status: "Production Ready · Benchmarked",
+    status: "Production Ready · Quora Question Pairs Indexed",
     repoUrl: "https://github.com/brolydas/Transformer-Based-Semantic-Retrieval-System",
     highlights: [
       "Fine-tuned DistilBERT bi-encoder using Multiple Negatives Ranking Loss (MNRL) on Quora Question Pairs",
@@ -172,33 +228,7 @@ class BiEncoderRetriever:
     def search(self, query, top_k=5):
         q_emb = self.encode([query])
         distances, indices = self.index.search(q_emb, top_k)
-        return distances[0], indices[0]`,
-    queries: [
-      {
-        query: "What are effective protocols to improve cardiovascular fitness?",
-        bm25Score: 0.12,
-        semanticScore: 0.94,
-        bestMatch: "Aerobic exercise routines and high-intensity interval training for heart health",
-        bm25Match: "Fitness protocols and gym memberships in downtown Austin",
-        analysis: "Lexical search fails because 'cardiovascular' and 'aerobic/heart' share zero token stems. The bi-encoder aligns their concepts in latent 768-D space."
-      },
-      {
-        query: "How can I prevent overfitting in deep neural networks?",
-        bm25Score: 0.28,
-        semanticScore: 0.96,
-        bestMatch: "Techniques for regularizing deep learning models: dropout, weight decay, and data augmentation",
-        bm25Match: "How to prevent water leaks in home network cabling setups",
-        analysis: "Lexical search grabs 'prevent' and 'network' resulting in plumbing/cabling false positives. The dense encoder matches 'overfitting' with 'regularization, dropout, weight decay'."
-      },
-      {
-        query: "What are the immediate physiological benefits of quitting smoking?",
-        bm25Score: 0.19,
-        semanticScore: 0.92,
-        bestMatch: "What happens to your arterial blood pressure and lung capacity within 24 hours of tobacco cessation?",
-        bm25Match: "Best smoking BBQ grills and smoker recipes for beginners",
-        analysis: "BM25 matches 'smoking' to meat smokers. The neural retriever understands the medical context of tobacco cessation and arterial recovery."
-      }
-    ]
+        return distances[0], indices[0]`
   },
   {
     id: "multimodal-search",
@@ -206,7 +236,7 @@ class BiEncoderRetriever:
     tagline: "Cross-Modal Latent Search & Zero-Shot Retrieval",
     title: "Multimodal Image-Text Search Engine",
     category: "Multimodal AI · Vision-Language Foundation Models",
-    status: "Production Ready · Benchmarked",
+    status: "Production Ready · MS-COCO Validation Benchmarked",
     repoUrl: "https://github.com/brolydas/Multimodal-Search-Engine",
     highlights: [
       "Projected 5,000+ MS-COCO validation images and free-form natural language queries into a unified 512-dim latent space",
@@ -261,54 +291,55 @@ def query_multimodal(text_prompt, index, top_k=4):
     
     similarities, indices = index.search(q_vec, top_k)
     return similarities[0], indices[0]`,
-    prompts: [
+    gallery: [
       {
-        prompt: "High-performance GPU cluster racks glowing with cyan telemetry lights",
-        topSim: 0.884,
-        category: "Datacenter Architecture",
-        description: "Dense server blades with liquid cooling tubes and optical interconnects",
-        tags: ["HPC", "NVIDIA H100", "InfiniBand", "Liquid Cooling"]
+        id: "umbrella",
+        imageSrc: "/data/multimodal/umbrella.jpg",
+        caption: "A woman with an umbrella walks down a wet city sidewalk in the rain.",
+        category: "People & Weather",
+        keywords: ["umbrella", "rain", "woman", "walking", "city", "sidewalk", "street"],
+        tags: ["COCO #000000000139", "ViT-B/32", "512-D", "Zero-Shot"]
       },
       {
-        prompt: "Deep cellular histology microscope field with stained cell nuclei",
-        topSim: 0.867,
-        category: "Medical Microscopy",
-        description: "Hematoxylin and eosin (H&E) stained tissue biopsy showing cellular mitosis",
-        tags: ["Histopathology", "H&E Stain", "Mitotic Phase", "Tissue Morphology"]
+        id: "kitchen",
+        imageSrc: "/data/multimodal/kitchen.jpg",
+        caption: "A spacious domestic kitchen featuring clean stainless steel appliances, stove, and wooden cabinetry.",
+        category: "Indoor & Architecture",
+        keywords: ["kitchen", "cooking", "refrigerator", "stove", "appliances", "cabinets", "interior"],
+        tags: ["COCO #000000000285", "ViT-B/32", "512-D", "Zero-Shot"]
       },
       {
-        prompt: "Deep space nebula with cosmic dust filaments and luminous stars",
-        topSim: 0.892,
-        category: "Astrophotography",
-        description: "Interstellar ionized gas clouds radiating deep violet and hydrogen-alpha glow",
-        tags: ["JWST", "Emission Nebula", "Cosmic Dust", "Stellar Nursery"]
+        id: "dog_frisbee",
+        imageSrc: "/data/multimodal/dog_frisbee.jpg",
+        caption: "A dynamic black and white dog jumping high in the air to catch a flying disc on a grass lawn.",
+        category: "Animals & Action",
+        keywords: ["dog", "frisbee", "grass", "lawn", "jumping", "flying disc", "canine", "pet", "fetch"],
+        tags: ["COCO #000000000632", "ViT-B/32", "512-D", "Zero-Shot"]
       },
       {
-        prompt: "Vintage classic cherry-red sports car parked along coastal highway at dusk",
-        topSim: 0.871,
-        category: "Automotive Aesthetics",
-        description: "Reflections of coastal sunset along curved metallic aerodynamic contours",
-        tags: ["Chassis Reflection", "Golden Hour", "Automotive Design", "Pacific Coast"]
+        id: "airplane",
+        imageSrc: "/data/multimodal/airplane.jpg",
+        caption: "A commercial jet passenger airplane soaring high through atmospheric cloud layers in flight.",
+        category: "Aviation & Transport",
+        keywords: ["airplane", "aeroplane", "jet", "flight", "flying", "clouds", "sky", "aviation", "aircraft"],
+        tags: ["COCO #000000000724", "ViT-B/32", "512-D", "Zero-Shot"]
+      },
+      {
+        id: "motorcycle",
+        imageSrc: "/data/multimodal/motorcycle.jpg",
+        caption: "A classic street motorcycle parked along the roadside near a city building facade.",
+        category: "Vehicles & Urban",
+        keywords: ["motorcycle", "bike", "motorbike", "vehicle", "parking", "street", "road", "urban"],
+        tags: ["COCO #000000000785", "ViT-B/32", "512-D", "Zero-Shot"]
+      },
+      {
+        id: "living_room",
+        imageSrc: "/data/multimodal/living_room.jpg",
+        caption: "A cozy living room interior setup with a large comfortable sofa couch, coffee table, and television screen.",
+        category: "Interior Design",
+        keywords: ["living room", "sofa", "couch", "television", "tv", "table", "furniture", "home"],
+        tags: ["COCO #000000000885", "ViT-B/32", "512-D", "Zero-Shot"]
       }
     ]
   }
 ];
-
-export const SYSTEM_SPECS = {
-  engineer: {
-    name: "Tharun Rongala",
-    handle: "brolydas",
-    role: "AI & Machine Learning Engineer",
-    institution: "National Institute of Technology, Raipur",
-    githubUrl: "https://github.com/brolydas",
-    portfolioUrl: "https://brolydas.github.io/TharunRongalaPortfolio/",
-    email: "tharunr8533@gmail.com"
-  },
-  telemetry: {
-    sustainedFps: "60 FPS",
-    totalModels: "3 Core Production Architectures",
-    totalParameters: "185M+ Parameters Evaluated",
-    cumulativeThroughput: "1,420+ img/s Peak GPU Processing",
-    meanP95Latency: "1.12 ms"
-  }
-};

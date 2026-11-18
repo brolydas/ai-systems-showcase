@@ -1,0 +1,737 @@
+[
+  {
+    "id": 0,
+    "q1": "Would the idea of Trump and Putin in bed together scare you, given the geopolitical implications?",
+    "q2": "Do you think that if Donald Trump were elected President, he would be able to restore relations with Putin and Russia as he said he could, based on the rocky relationship Putin had with Obama and Bush?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 1,
+    "q1": "What are the top ten Consumer-to-Consumer E-commerce online?",
+    "q2": "What are the top ten Consumer-to-Business E-commerce online?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 2,
+    "q1": "Why don't people simply 'Google' instead of asking questions on Quora?",
+    "q2": "Why do people ask Quora questions instead of just searching google?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 3,
+    "q1": "Is it safe to invest in social trade biz?",
+    "q2": "Is social trade geniune?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 4,
+    "q1": "If the universe is expanding then does matter also expand?",
+    "q2": "If universe and space is expanding? Does that mean anything that occupies space is also expanding?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 5,
+    "q1": "What is the plural of hypothesis?",
+    "q2": "What is the plural of thesis?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 6,
+    "q1": "What is the application form you need for launching a company?",
+    "q2": "What is the application form you need for launching a company in Austria?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 7,
+    "q1": "What is Big Theta? When should I use Big Theta as opposed to big O?",
+    "q2": "Is O(Log n) close to O(n) or O(1)?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 8,
+    "q1": "What are the health implications of accidentally eating a small quantity of aluminium foil?",
+    "q2": "What are the implications of not eating vegetables?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 9,
+    "q1": "Where is the best whirlpool service center Hyderabad?",
+    "q2": "Where is the best Whirlpool Refrigerator Service Center in Hyderabad?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 10,
+    "q1": "Kollywood:Why do actor Vijay fans(not all ,but many) hate actor Surya?",
+    "q2": "How many Bollywood Actors takes drugs in real life?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 11,
+    "q1": "How can you secure your computer privacy?",
+    "q2": "How can I secure my privacy on the web?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 12,
+    "q1": "What are the best projects for beginners in Android app development?",
+    "q2": "What are the steps for creating an Android app for an absolute beginner interested in app development?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 13,
+    "q1": "What is a security?",
+    "q2": "How secure is the National Food Security Bill (NFSB)?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 14,
+    "q1": "Which Star Wars lightsaber is your favorite?",
+    "q2": "What is the concept behind the design of the new lightsabers in Star Wars: The Force Awakens?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 15,
+    "q1": "What happens when aluminium reacts with concentrated sulfuric acid in the presence of heat?",
+    "q2": "What is calcium carbonate sulfuric acid?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 16,
+    "q1": "How can i stop shaking from being angry?",
+    "q2": "How do I stop being angry at everything?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 17,
+    "q1": "Should I study Computer engineering or Dentistry?",
+    "q2": "Should I study Computer Engineering in college?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 18,
+    "q1": "How is the density of water calculated at STP?",
+    "q2": "How do you calculate the density of O2 at STP?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 19,
+    "q1": "How many people were still onboard Titanic as it sank?",
+    "q2": "How many people died in the making of the movie Titanic?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 20,
+    "q1": "What are the best wireless headphones available in India?",
+    "q2": "Do affordable wireless headphones exist?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 21,
+    "q1": "Is Michelle Obama transgender?",
+    "q2": "Is it true that Michelle Obama is a man?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 22,
+    "q1": "What are liquors and spirits?",
+    "q2": "What are the most interesting liquors/spirits in the world?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 23,
+    "q1": "What is the antonym of sapiosexual?",
+    "q2": "\"Is 16\"\"/50 caliber Mark 7 gun shell more powerful than Harpoon missile?\"",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 24,
+    "q1": "How do I quit smoking?",
+    "q2": "How do I give up on cigarette smoking?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 25,
+    "q1": "How can I earn money online?",
+    "q2": "How can I earn cash online?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 26,
+    "q1": "What tricks are used by accountants to cheat?",
+    "q2": "What are some tricks men use to test women?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 27,
+    "q1": "What is the best way to improve my business communication skills?",
+    "q2": "How can I improve the communication skill and what are the best ways?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 28,
+    "q1": "What is the best way to eat a mango with and without knife?",
+    "q2": "What is the best way to eat a mango?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 29,
+    "q1": "Which place is better to live with a family: Australia or Canada? Why?",
+    "q2": "Which is a better place to live: Sweden or the USA?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 30,
+    "q1": "How do I concentrate more on studies during xams?",
+    "q2": "What should I do if I can no more concentrate while studying?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 31,
+    "q1": "Could Russia win a war against the EU?",
+    "q2": "Who would win a war between NATO and some of its allies versus the rest of the world including India, Russia, China etc.?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 32,
+    "q1": "How do you treat dysmenorrhea?",
+    "q2": "How do you cure dysmenorrhea?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 33,
+    "q1": "Can I register shares of a private limited company in India?",
+    "q2": "Can a school in India be registered as a private limited company?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 34,
+    "q1": "Where is better placement bits pilani cs or IIT jodhpur cs?",
+    "q2": "Which will be better option to buy a shell company or shelf company?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 35,
+    "q1": "What is the difference between phrasal verbs and prepositional verbs?",
+    "q2": "Do you ever notice jealous wives or girlfriends?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 36,
+    "q1": "Who would win in a fight, a wolf or a human?",
+    "q2": "Animal Behavior: Would a lone adult wolf be able to take down an unarmed, athletic adult human?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 37,
+    "q1": "Do aliens really exist?",
+    "q2": "Do aliens exist really?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 38,
+    "q1": "Is it physically possible to time travel back in time?",
+    "q2": "Is time travel is possible in this age of technology?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 39,
+    "q1": "Is it true that the Germans are considered to have been the best soldiers of World War II?",
+    "q2": "Could World War II have been won without the United States?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 40,
+    "q1": "I am an odd number. Take away one letter and I become even. What number am I?",
+    "q2": "Why are odd numbers odd?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 41,
+    "q1": "How can I land my first job through courses from Coursera, edX and/or Udacity?",
+    "q2": "Has anyone land up to his/her dream job or started his/her own venture by taking online courses from websites like coursera.org?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 42,
+    "q1": "How do I start a career in Analytics?",
+    "q2": "How do I start my career in Analytics field, being a MBA professional?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 43,
+    "q1": "What is your review of Mother Dairy?",
+    "q2": "What is the cost of rearing a cow for milk and then looking after her till her natural death?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 44,
+    "q1": "What city in the world has the worst driving?",
+    "q2": "What cities in the world have the worst traffic, and why?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 45,
+    "q1": "What is the minimum eligibility required to do internship in ntpc after 2nd year btech?",
+    "q2": "I am currently a 2nd year student pursuing dual degree (B. Tech & M. Tech) in biotechnology.Can I get a summer internship program after 2nd year?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 46,
+    "q1": "Would Voldemort have returned without Peter Pettigrew?",
+    "q2": "If someone had snatched Voldemort's wand and beaten him physically, would be have died?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 47,
+    "q1": "What are the strengths and weaknesses of the advising system at Illinois State?",
+    "q2": "What are the strengths and weaknesses of the advising system at Illinois Tech?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 48,
+    "q1": "Is it worth to leave your job and complete Udacity nano degrees in machine learning and data analyst?",
+    "q2": "Can I complete Udacity's Machine Learning nanodegree in a month? Will I be able to find relevant jobs/internships after it?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 49,
+    "q1": "Why Was Shah Rukh Khan's son Abram born through surrogacy?",
+    "q2": "What are the cons of being Shah Rukh Khan?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 50,
+    "q1": "Are there any reliable non-Japanese cars?",
+    "q2": "Are American cars reliable compared to Japanese cars?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 51,
+    "q1": "Is it possible to find professors, PhD/PG students from universities of New Zealand who would like to share their knowledge for free to record MOOCs?",
+    "q2": "How can we find professors, PhD & masters students from universities from Spain who would like to share their knowledge for free to record MOOCs?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 52,
+    "q1": "What's the best html5 admin template?",
+    "q2": "How can I use a HTML admin template on Wordpress?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 53,
+    "q1": "What is a difference between a small bank and a payments bank? And the need for it?",
+    "q2": "What is the difference between bank rate and bank lending rate?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 54,
+    "q1": "If the Muppets and Sesame Street went to war, who would win?",
+    "q2": "Who would win if all countries in Europe went to war with no help from outside?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 55,
+    "q1": "What if America doesn't become a white minority?",
+    "q2": "Why is the race of African Americans still considered a minority when applying for scholarships? Why can't white be considered a minority also?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 56,
+    "q1": "How much data does a minute of a WhatsApp call consume?",
+    "q2": "How much data does WhatsApp consume if you send a normal text of 4 to 5 words?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 57,
+    "q1": "What was your most embarrassing painful moment?",
+    "q2": "What is the most embarrassing moment of your life?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 58,
+    "q1": "How do I know if there is suspicious activity on my Instagram account? Will I get notified?",
+    "q2": "\"What is \"\"suspicious activity\"\" in instagram?\"",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 59,
+    "q1": "What kind of music do the most intelligent people listen to?",
+    "q2": "How do you find music that few people listen to?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 60,
+    "q1": "What was the best season of 24?",
+    "q2": "What is the best season of 24 other than Season 1?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 61,
+    "q1": "Will backwards time travel ever be possible?",
+    "q2": "Do you think time travel is possible?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 62,
+    "q1": "How do you make crispy roast pumpkin?",
+    "q2": "How do I make crispy chilli potatoes?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 63,
+    "q1": "Is there some time limit for the eLitmus score card after getting good marks in it?",
+    "q2": "What is the time limit for the eLitmus score card, after getting good marks in it?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 64,
+    "q1": "Are there any tools (web or Mac OS) that can export a vector (EPS/SVG/etc) of an audio file's waveform?",
+    "q2": "Is there a way to transcript an existing audio file?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 65,
+    "q1": "Who is the father of mathematics?",
+    "q2": "What's the coolest mathematical object?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 66,
+    "q1": "Is the Earth actually perfectly round, like a round ball? Is it lumpy?",
+    "q2": "Is the earth actually round?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 67,
+    "q1": "Why does skin breakout after a facial?",
+    "q2": "Sir, May I buy Divi`s lab 2 this fallen price?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 68,
+    "q1": "What is the difference between Augmented reality, virtual reality and artificial intelligence?",
+    "q2": "What is the difference between augmented reality and mediated reality?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 69,
+    "q1": "Are there Quora like service in other countries and languages other than English?",
+    "q2": "Is gangstalking an English-language phenomenon? Has anyone heard of this in other countries than dominantly English-speaking countries?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 70,
+    "q1": "Joe Biden?",
+    "q2": "SIFT: How to use SIFT features in the fit function for predict_proba()?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 71,
+    "q1": "What is the difference between a casserole dish and a roasting tray?",
+    "q2": "What is a good side dish to serve with tuna casserole?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 72,
+    "q1": "How can we study the human nature?",
+    "q2": "How do I know human nature?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 73,
+    "q1": "Why is PewDiePie so famous when there are equally talented Youtubers?",
+    "q2": "What is the reason that YouTubers from India are not famous on YouTube?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 74,
+    "q1": "What are some interesting Guinness World Records?",
+    "q2": "How many Guinness World Records are there?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 75,
+    "q1": "What is the best way to get started with computer vision as an individual?",
+    "q2": "How do I learn computer vision?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 76,
+    "q1": "What happens when tectonic plates are moving away from each other?",
+    "q2": "Why do tectonic plates move?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 77,
+    "q1": "Do you get paid contributing to Quora?",
+    "q2": "How do contributors get paid by Quora?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 78,
+    "q1": "How can I stop thinking unnecessarily while I am studying?",
+    "q2": "Love: I'm deeply in love, and I can't stop thinking about him all day. This drives me crazy. How can I stop thinking about him, knowing that he most likely doesn't like me back and only sees me as a friend/sister?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 79,
+    "q1": "Would you be able to walk if you severed your femoral artery?",
+    "q2": "How does a person sever their femoral artery?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 80,
+    "q1": "Can insulators be charged by induction? Why or why not?",
+    "q2": "Is the plane of charge an insulator or a conductor?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 81,
+    "q1": "How can learn English?",
+    "q2": "How do I improve my English?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 82,
+    "q1": "What percentage of the world's population lives in developed countries?",
+    "q2": "Many students from third world countries apply to US universities just to escape from hell and live in a developed country. Is this good or bad?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 83,
+    "q1": "What's the pros and cons of being a flight attendant?",
+    "q2": "What are the pros and cons of being flight attendants?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 84,
+    "q1": "What plastic surgery did Kylie Jenner receive?",
+    "q2": "Has Kylie Jenner had plastic surgery?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 85,
+    "q1": "Is Balaji Viswanathan fearless?",
+    "q2": "If we have custom validations and services separately, do we violate OOP encapsulation principle?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 86,
+    "q1": "How is anything power zero one?",
+    "q2": "Why does a number raised to the zeroth power equal one?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 87,
+    "q1": "Is it wrong to consider the majority of people as idiots?",
+    "q2": "Would I be wrong to consider the majority of people idiots?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 88,
+    "q1": "\"Why do we \"\"fall\"\" in love and not \"\"rise\"\" in love?\"",
+    "q2": "How can I avoid falling in love?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 89,
+    "q1": "Was J. Krishnamurti really a special human being?",
+    "q2": "What did Osho Rajneesh imbibe from Jiddu Krishnamurti? Some sources maintain that some of their teachings were similar?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 90,
+    "q1": "I can't remember most of my childhood, even high-school memories are blurry. Why is this?",
+    "q2": "Is it normal that I don't remember any of my childhood memories?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 91,
+    "q1": "What are my chances of getting a RBI assitant job with a nominal score of 50% in graduation?",
+    "q2": "Theoretically if you had a perfect options pricing formula, how would you conduct arbitrage?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 92,
+    "q1": "Is it true that there are more stars than grains of sand?",
+    "q2": "Are there more stars than grains of sand?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 93,
+    "q1": "Why I can not loose weight after loosing 40 pounds in 4 months?",
+    "q2": "How can I lose weight quickly?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 94,
+    "q1": "How can I get the address of the PayTM seller?",
+    "q2": "How may I get cash on delivery in Paytm?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 95,
+    "q1": "Why do I think of people I don't even care about?",
+    "q2": "Why do I get hurt when people don't think or care about me the way i do for them?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 96,
+    "q1": "Looking for Enterprise DAM application, robust version control and automated asset rendition creation, Adobe suite, Visio, PowerPoint, video. Anyone have something they love to use?",
+    "q2": "Digital Asset Management: What is a good DAM system that lets you tag pictures with certain terms so you can filter them?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 97,
+    "q1": "Which one is better Amity Noida or IEM?",
+    "q2": "Which is better: Amity Noida vs LPU?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 98,
+    "q1": "What can I do to make my hair thick and grow faster?",
+    "q2": "What are some ways to make hair grow faster?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 99,
+    "q1": "Who are the founders?",
+    "q2": "Who is the founder of numbers?",
+    "isDuplicate": false,
+    "category": "General Knowledge / Quora Test Set"
+  },
+  {
+    "id": 101,
+    "q1": "What are effective protocols to improve cardiovascular fitness?",
+    "q2": "Aerobic exercise routines and high-intensity interval training for heart health",
+    "isDuplicate": true,
+    "category": "Cardiology & Physical Health"
+  },
+  {
+    "id": 102,
+    "q1": "How can I prevent overfitting in deep neural networks?",
+    "q2": "Techniques for regularizing deep learning models: dropout, weight decay, and data augmentation",
+    "isDuplicate": true,
+    "category": "Deep Learning & ML Engineering"
+  },
+  {
+    "id": 103,
+    "q1": "What are the physiological benefits of quitting smoking?",
+    "q2": "What happens to your arterial blood pressure and lung capacity within 24 hours of tobacco cessation?",
+    "isDuplicate": true,
+    "category": "Medical Science"
+  },
+  {
+    "id": 104,
+    "q1": "How to accelerate PyTorch training on NVIDIA GPUs?",
+    "q2": "Optimizing deep learning training loops using FP16 Automatic Mixed Precision (AMP) and pinned memory DataLoaders",
+    "isDuplicate": true,
+    "category": "GPU Acceleration & CUDA"
+  },
+  {
+    "id": 105,
+    "q1": "How do vector databases perform fast similarity search?",
+    "q2": "Indexing high-dimensional embeddings using FAISS IVF-Flat Voronoi quantization and inner product metrics",
+    "isDuplicate": true,
+    "category": "Information Retrieval & Vector DBs"
+  }
+]

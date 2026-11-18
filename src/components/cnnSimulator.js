@@ -8,112 +8,138 @@ export function initCnnSimulator() {
   const project = PROJECTS_DATA.find(p => p.id === 'histopathology-cnn');
   let currentSampleIndex = 0;
   let isFP16 = true;
+  let showGradCam = true;
   let isInferring = false;
+  let customImage = null;
 
   const canvas = container.querySelector('#histology-canvas');
   const ctx = canvas?.getContext('2d');
 
-  function drawHistologySlide(sample) {
+  function renderSlide(sample) {
     if (!ctx || !canvas) return;
     const w = canvas.width;
     const h = canvas.height;
 
-    // Base tissue background (hematoxylin & eosin color spectrum)
     ctx.clearRect(0, 0, w, h);
-    
-    // Eosin pinkish background
-    const bgGrad = ctx.createRadialGradient(w / 2, h / 2, 20, w / 2, h / 2, w * 0.7);
-    bgGrad.addColorStop(0, '#381628');
-    bgGrad.addColorStop(1, '#1a0d16');
-    ctx.fillStyle = bgGrad;
-    ctx.fillRect(0, 0, w, h);
 
-    // Render cellular nuclei (Hematoxylin deep purple/blue)
-    const seed = sample.id.length * 42;
-    for (let i = 0; i < 90; i++) {
-      const cx = (Math.sin(seed + i * 1.7) * 0.45 + 0.5) * w;
-      const cy = (Math.cos(seed + i * 2.3) * 0.45 + 0.5) * h;
-      const r = 3 + (Math.sin(i * 3) * 2 + 3);
+    const img = customImage || new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => {
+      // Draw base histological slide
+      ctx.drawImage(img, 0, 0, w, h);
 
-      // Nucleus
-      ctx.beginPath();
-      ctx.arc(cx, cy, r, 0, Math.PI * 2);
-      ctx.fillStyle = i % 3 === 0 ? 'rgba(110, 40, 160, 0.75)' : 'rgba(75, 25, 110, 0.65)';
-      ctx.fill();
+      // Render Grad-CAM attention heatmap overlay if enabled
+      if (showGradCam) {
+        const cx = sample.id.includes('colon') ? w * 0.48 : w * 0.55;
+        const cy = sample.id.includes('bnt') ? h * 0.5 : h * 0.45;
+        const gradRadius = sample.id.includes('bnt') ? w * 0.35 : w * 0.42;
 
-      // Nuclear membrane
-      ctx.strokeStyle = 'rgba(180, 80, 220, 0.35)';
-      ctx.lineWidth = 1;
-      ctx.stroke();
+        const heatGrad = ctx.createRadialGradient(cx, cy, 15, cx, cy, gradRadius);
+        if (sample.id.includes('aca') || sample.id.includes('scc')) {
+          heatGrad.addColorStop(0, 'rgba(239, 68, 68, 0.72)'); // High malignant activation (Red)
+          heatGrad.addColorStop(0.4, 'rgba(245, 158, 11, 0.45)'); // Mid transition (Amber)
+          heatGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        } else {
+          heatGrad.addColorStop(0, 'rgba(16, 185, 129, 0.65)'); // Benign normal pattern (Emerald)
+          heatGrad.addColorStop(0.5, 'rgba(56, 189, 248, 0.35)');
+          heatGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        }
+
+        ctx.fillStyle = heatGrad;
+        ctx.fillRect(0, 0, w, h);
+
+        // Feature focal crosshair
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+        ctx.lineWidth = 1;
+        ctx.setLineDash([3, 3]);
+        ctx.beginPath();
+        ctx.moveTo(cx - 24, cy);
+        ctx.lineTo(cx + 24, cy);
+        ctx.moveTo(cx, cy - 24);
+        ctx.lineTo(cx, cy + 24);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+    };
+
+    if (customImage) {
+      img.onload();
+    } else {
+      img.src = sample.imageSrc;
     }
-
-    // Heatmap Activation Overlay (Grad-CAM feature response)
-    const heatGrad = ctx.createRadialGradient(w * 0.52, h * 0.48, 10, w * 0.52, h * 0.48, w * 0.45);
-    heatGrad.addColorStop(0, 'rgba(16, 185, 129, 0.65)'); // Emerald activation
-    heatGrad.addColorStop(0.4, 'rgba(245, 158, 11, 0.35)'); // Amber transition
-    heatGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
-    ctx.fillStyle = heatGrad;
-    ctx.fillRect(0, 0, w, h);
-
-    // Crosshair target
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
-    ctx.lineWidth = 1;
-    ctx.setLineDash([4, 4]);
-    ctx.beginPath();
-    ctx.moveTo(w * 0.52 - 20, h * 0.48);
-    ctx.lineTo(w * 0.52 + 20, h * 0.48);
-    ctx.moveTo(w * 0.52, h * 0.48 - 20);
-    ctx.lineTo(w * 0.52, h * 0.48 + 20);
-    ctx.stroke();
-    ctx.setLineDash([]);
   }
 
   function updateUI() {
     const sample = project.samples[currentSampleIndex];
-    
-    // Update sample title & meta
+
     const titleEl = container.querySelector('[data-cnn-title]');
     const typeEl = container.querySelector('[data-cnn-type]');
+    const sourceEl = container.querySelector('[data-cnn-source]');
     const latencyValEl = container.querySelector('[data-cnn-latency]');
     const vramValEl = container.querySelector('[data-cnn-vram]');
     const confValEl = container.querySelector('[data-cnn-conf]');
-    const confBarEl = container.querySelector('[data-cnn-conf-bar]');
     const patternEl = container.querySelector('[data-cnn-pattern]');
     const featuresListEl = container.querySelector('[data-cnn-features]');
+    const probListEl = container.querySelector('[data-cnn-probabilities]');
 
     if (titleEl) titleEl.textContent = sample.tissue;
     if (typeEl) typeEl.textContent = sample.tissueType;
+    if (sourceEl) sourceEl.textContent = sample.datasetSource;
     if (patternEl) patternEl.textContent = sample.cellularPattern;
 
     const latency = isFP16 ? sample.latencyMsFP16 : sample.latencyMsFP32;
-    const vram = isFP16 ? "1.82 GB" : "3.51 GB";
-    
+    const vram = isFP16 ? "1.82 GB (AMP FP16)" : "3.51 GB (FP32)";
+
     if (latencyValEl) latencyValEl.textContent = `${latency.toFixed(2)} ms`;
     if (vramValEl) vramValEl.textContent = vram;
     if (confValEl) confValEl.textContent = `${sample.confidence.toFixed(1)}%`;
-    if (confBarEl) confBarEl.style.width = `${sample.confidence}%`;
 
     if (featuresListEl) {
-      featuresListEl.innerHTML = sample.features.map(f => 
+      featuresListEl.innerHTML = sample.features.map(f =>
         `<span class="telemetry-badge"><span class="telemetry-dot"></span>${f}</span>`
       ).join('');
     }
 
-    drawHistologySlide(sample);
+    if (probListEl) {
+      probListEl.innerHTML = sample.probabilities.map((prob, i) => `
+        <div class="prob-row">
+          <span class="prob-name">${prob.name}:</span>
+          <div class="prob-bar-track">
+            <div class="prob-bar-fill ${i === 0 ? 'bg-emerald' : 'bg-dim'}" style="width: ${prob.p}%"></div>
+          </div>
+          <span class="prob-val">${prob.p.toFixed(1)}%</span>
+        </div>
+      `).join('');
+    }
+
+    renderSlide(sample);
   }
 
-  // Sample tab clicks
-  container.querySelectorAll('[data-sample-btn]').forEach((btn, idx) => {
+  // 5 Class Tab Buttons
+  container.querySelectorAll('[data-sample-btn]').forEach((btn) => {
     btn.addEventListener('click', () => {
       container.querySelectorAll('[data-sample-btn]').forEach(b => b.classList.remove('is-active'));
       btn.classList.add('is-active');
-      currentSampleIndex = idx;
+      currentSampleIndex = parseInt(btn.getAttribute('data-sample-btn'), 10);
+      customImage = null;
       sound.playClick();
       updateUI();
     });
   });
 
-  // Precision mode toggle
+  // Toggle Grad-CAM Heatmap
+  const gradCamBtn = container.querySelector('[data-gradcam-toggle]');
+  if (gradCamBtn) {
+    gradCamBtn.addEventListener('click', () => {
+      showGradCam = !showGradCam;
+      gradCamBtn.textContent = showGradCam ? "GRAD-CAM: ACTIVE" : "GRAD-CAM: OFF";
+      gradCamBtn.classList.toggle('is-active', showGradCam);
+      sound.playClick();
+      renderSlide(project.samples[currentSampleIndex]);
+    });
+  }
+
+  // Precision mode toggle (FP16 vs FP32)
   const precisionBtn = container.querySelector('[data-precision-toggle]');
   if (precisionBtn) {
     precisionBtn.addEventListener('click', () => {
@@ -125,13 +151,33 @@ export function initCnnSimulator() {
     });
   }
 
-  // Run Benchmark Button
+  // User Slide Upload handler
+  const uploadInput = container.querySelector('#histology-file-upload');
+  if (uploadInput) {
+    uploadInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const img = new Image();
+        img.onload = () => {
+          customImage = img;
+          sound.playSuccess();
+          updateUI();
+        };
+        img.src = event.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  // Run Inference Benchmark Button
   const runBtn = container.querySelector('[data-run-cnn]');
   if (runBtn) {
     runBtn.addEventListener('click', () => {
       if (isInferring) return;
       isInferring = true;
-      runBtn.textContent = "COMPUTING TENSOR PASS...";
+      runBtn.textContent = "COMPUTING FORWARD PASS & GRAD-CAM...";
       runBtn.classList.add('is-running');
       sound.playClick();
 
