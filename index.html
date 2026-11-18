@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Tharun Rongala — High-Performance Neural Systems & AI Infrastructure</title>
+  <meta name="description" content="Production-grade engineering showcase of Tharun Rongala's premier AI systems: High-Performance CNN (AMP FP16), Transformer Semantic Retrieval (FAISS), and Multimodal Search (CLIP ViT-B/32).">
+  <meta name="theme-color" content="#090a0f">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="Tharun Rongala — Neural Systems & AI Engineering Showcase">
+  <meta property="og:description" content="High-throughput vision pipelines, dense vector retrieval, and cross-modal latent search engines built by Tharun Rongala.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts: Preconnect to Google Fonts for Space Grotesk and JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body>
+  <!-- Accessible skip link -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Preloader: Authentic numeric telemetry initialization -->
+  <div class="preloader" data-preloader aria-hidden="true">
+    <div class="preloader__inner">
+      <div class="preloader__header">
+        <span class="preloader__tag">SYSTEM INITIALIZATION // TELEMETRY LINK</span>
+        <span class="preloader__status" data-preload-log>INITIALIZING NEURAL TELEMETRY KERNEL</span>
+      </div>
+      <div class="preloader__counter">
+        <span class="preloader__num" data-preload-num>000</span>
+        <span class="preloader__unit">%</span>
+      </div>
+      <div class="preloader__track">
+        <div class="preloader__bar" data-preload-bar></div>
+      </div>
+      <div class="preloader__footer">
+        <span>ARCH: NVIDIA CUDA 12 · PYTORCH 2.X · FAISS-GPU</span>
+        <span class="preloader__hint">CLICK ANYWHERE TO BYPASS</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Background Canvas: Morphing Neural Matrix -->
+  <canvas id="neural-matrix-canvas" aria-hidden="true"></canvas>
+
+  <!-- Precision Custom Cursor HUD -->
+  <div class="cursor-hud" data-cursor aria-hidden="true">
+    <div class="cursor-hud__dot" data-cursor-dot></div>
+    <div class="cursor-hud__telemetry">
+      <span class="cursor-hud__coords" data-cursor-coords>0000 : 0000</span>
+      <span class="cursor-hud__label" data-cursor-label></span>
+    </div>
+  </div>
+
+  <!-- Global Header -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="#" class="header__brand" data-cursor-text="RESET">
+        <span class="brand-monogram">TR</span>
+        <div class="brand-text">
+          <span class="brand-name">THARUN RONGALA</span>
+          <span class="brand-sub">AI SYSTEMS ENGINEER</span>
+        </div>
+      </a>
+
+      <nav class="header__nav" aria-label="Systems">
+        <a href="#sector-cnn" class="nav-item" data-cursor-text="SECTOR 01">
+          <span class="nav-num">01</span>
+          <span class="nav-title">CNN VISION</span>
+        </a>
+        <a href="#sector-semantic" class="nav-item" data-cursor-text="SECTOR 02">
+          <span class="nav-num">02</span>
+          <span class="nav-title">SEMANTIC FAISS</span>
+        </a>
+        <a href="#sector-multimodal" class="nav-item" data-cursor-text="SECTOR 03">
+          <span class="nav-num">03</span>
+          <span class="nav-title">MULTIMODAL CLIP</span>
+        </a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="telemetry-pill btn-sound" data-sound-toggle data-cursor-text="AUDIO">
+          <span class="pulse-indicator"></span>
+          <span data-sound-label>AUDIO: OFF</span>
+        </button>
+        <a href="https://github.com/brolydas" target="_blank" rel="noopener noreferrer" class="btn-primary" data-cursor-text="GITHUB">
+          <span>GITHUB / BROLYDAS</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main" tabindex="-1">
+    
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="overview">
+      <div class="container">
+        <div class="hero-header" data-reveal>
+          <div class="sector-kicker">
+            <span class="kicker-pulse"></span>
+            <span>PRODUCTION BENCHMARKS & ARCHITECTURAL CASE STUDIES</span>
+          </div>
+          <h1 class="hero-headline">
+            High-Performance Neural Systems & Vector Latent Geometry.
+          </h1>
+          <p class="hero-subtext">
+            Three deep learning production architectures engineered by <strong>Tharun Rongala</strong> for maximum GPU throughput, zero-shot multimodal alignment, and sub-millisecond dense vector retrieval.
+          </p>
+        </div>
+
+        <!-- Telemetry Stats Bar -->
+        <div class="hero-telemetry-bar" data-reveal>
+          <div class="telemetry-stat">
+            <span class="stat-label">GPU INFERENCE SPEEDUP</span>
+            <span class="stat-value text-emerald">3.8x</span>
+            <span class="stat-meta">PyTorch AMP FP16</span>
+          </div>
+          <div class="telemetry-stat">
+            <span class="stat-label">VECTOR RETRIEVAL LATENCY</span>
+            <span class="stat-value text-indigo">&lt;0.42 ms</span>
+            <span class="stat-meta">FAISS 768-D IndexFlatIP</span>
+          </div>
+          <div class="telemetry-stat">
+            <span class="stat-label">MULTIMODAL RESOLUTION</span>
+            <span class="stat-value text-amber">512-D</span>
+            <span class="stat-meta">CLIP ViT-B/32 Zero-Shot</span>
+          </div>
+          <div class="telemetry-stat">
+            <span class="stat-label">DATASET SCALE TESTED</span>
+            <span class="stat-value">118k+</span>
+            <span class="stat-meta">Batched OOM-Safe Pipeline</span>
+          </div>
+        </div>
+
+        <!-- Keyboard Shortcut HUD -->
+        <div class="keyboard-hud" data-reveal>
+          <span class="hud-label">KEYBOARD TELEMETRY SHORTCUTS:</span>
+          <span class="hud-key"><kbd>1</kbd> CNN Vision</span>
+          <span class="hud-key"><kbd>2</kbd> Semantic FAISS</span>
+          <span class="hud-key"><kbd>3</kbd> Multimodal CLIP</span>
+          <span class="hud-key"><kbd>M</kbd> Mute/Sound</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTOR 01: HIGH-PERFORMANCE CNN FOR HISTOPATHOLOGY -->
+    <section class="sector-section" id="sector-cnn" data-sector="01">
+      <div class="container">
+        <div class="sector-badge" data-reveal>
+          <span class="badge-num">SECTOR 01</span>
+          <span class="badge-sep">/</span>
+          <span class="badge-label">COMPUTER VISION · HIGH-THROUGHPUT PIPELINE</span>
+        </div>
+
+        <div class="sector-grid">
+          <div class="sector-info" data-reveal>
+            <h2 class="sector-title">High-Performance CNN for Histopathology</h2>
+            <p class="sector-tagline">
+              Accelerated automated biopsy tissue classification across 25,000 histopathology images with Automatic Mixed Precision (AMP).
+            </p>
+
+            <ul class="sector-highlights">
+              <li>
+                <strong>99.42% Classification Accuracy:</strong> Fine-tuned <code>EfficientNet-B0</code> backbone across 5 distinct lung and colon tissue classes on the LC25000 dataset using transfer learning and label smoothing (&epsilon;=0.1).
+              </li>
+              <li>
+                <strong>Automatic Mixed Precision (FP16):</strong> Deployed <code>torch.cuda.amp.GradScaler</code> cutting GPU memory usage by 48% while boosting training throughput to 1,420 images/second.
+              </li>
+              <li>
+                <strong>Non-Blocking Asynchronous IO:</strong> Maximized GPU compute saturation using pinned host memory (<code>pin_memory=True</code>) and multi-threaded asynchronous workers.
+              </li>
+              <li>
+                <strong>Regularization & Convergence:</strong> Optimized with AdamW weight decay ($10^{-2}$) and Cosine Annealing with linear warmup to avoid histological over-fitting.
+              </li>
+            </ul>
+
+            <!-- Metrics Matrix -->
+            <div class="metrics-grid">
+              <div class="metric-card">
+                <span class="m-val">99.42%</span>
+                <span class="m-lbl">Validation Accuracy</span>
+              </div>
+              <div class="metric-card">
+                <span class="m-val">3.8x</span>
+                <span class="m-lbl">Training Acceleration</span>
+              </div>
+              <div class="metric-card">
+                <span class="m-val">1.82 GB</span>
+                <span class="m-lbl">FP16 VRAM Footprint</span>
+              </div>
+              <div class="metric-card">
+                <span class="m-val">25,000</span>
+                <span class="m-lbl">Histology Biopsies</span>
+              </div>
+            </div>
+
+            <div class="sector-actions">
+              <button class="btn-primary" data-open-modal="histopathology-cnn" data-cursor-text="CODE">
+                INSPECT ARCHITECTURE &amp; CODE
+              </button>
+              <a href="https://github.com/brolydas/High-Performance-CNN" target="_blank" rel="noopener noreferrer" class="btn-secondary" data-cursor-text="GITHUB">
+                VIEW GITHUB REPO ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Interactive Simulator: CNN -->
+          <div class="sector-interactive" id="cnn-simulator" data-reveal>
+            <div class="simulator-card">
+              <div class="simulator-card__header">
+                <div class="sim-title">
+                  <span class="sim-indicator bg-emerald"></span>
+                  <span>LIVE HISTOPATHOLOGY TISSUE CLASSIFIER SIMULATOR</span>
+                </div>
+                <button class="precision-btn is-fp16" data-precision-toggle data-cursor-text="TOGGLE">
+                  MODE: FP16 (AMP ACCELERATED)
+                </button>
+              </div>
+
+              <!-- Slide selection tabs -->
+              <div class="simulator-tabs">
+                <button class="tab-btn is-active" data-sample-btn="0">Colon Adeno</button>
+                <button class="tab-btn" data-sample-btn="1">Lung Squamous</button>
+                <button class="tab-btn" data-sample-btn="2">Lung Benign</button>
+                <button class="tab-btn" data-sample-btn="3">Colon Benign</button>
+              </div>
+
+              <!-- Interactive Canvas & Feature Display -->
+              <div class="simulator-display">
+                <div class="canvas-wrap">
+                  <canvas id="histology-canvas" width="480" height="280"></canvas>
+                  <div class="canvas-hud-overlay">
+                    <span class="badge-hud">GRAD-CAM ACTIVATION MAP</span>
+                    <span class="badge-hud" data-cnn-type>Malignant Colorectal Neoplasm</span>
+                  </div>
+                </div>
+
+                <div class="simulator-telemetry-panel">
+                  <div class="telemetry-row">
+                    <span class="lbl">PREDICTED CLASS:</span>
+                    <span class="val text-emerald" data-cnn-title>Colon Adenocarcinoma</span>
+                  </div>
+                  <div class="telemetry-row">
+                    <span class="lbl">CONFIDENCE PROBABILITY:</span>
+                    <span class="val" data-cnn-conf>99.8%</span>
+                  </div>
+                  <div class="telemetry-bar-wrap">
+                    <div class="telemetry-bar-fill bg-emerald" data-cnn-conf-bar style="width: 99.8%;"></div>
+                  </div>
+                  <div class="telemetry-row">
+                    <span class="lbl">GPU INFERENCE LATENCY:</span>
+                    <span class="val" data-cnn-latency>1.84 ms</span>
+                  </div>
+                  <div class="telemetry-row">
+                    <span class="lbl">VRAM OCCUPANCY:</span>
+                    <span class="val" data-cnn-vram>1.82 GB</span>
+                  </div>
+                  <div class="telemetry-row">
+                    <span class="lbl">CELLULAR MORPHOLOGY:</span>
+                    <span class="val-desc" data-cnn-pattern>Glandular architectural distortion with nuclear hyperchromatism</span>
+                  </div>
+                  
+                  <div class="features-box">
+                    <span class="features-label">EXTRACTED TENSOR FEATURES:</span>
+                    <div class="features-tags" data-cnn-features></div>
+                  </div>
+
+                  <button class="btn-benchmark" data-run-cnn data-cursor-text="RUN">
+                    RUN INFERENCE BENCHMARK
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTOR 02: TRANSFORMER-BASED SEMANTIC RETRIEVAL -->
+    <section class="sector-section" id="sector-semantic" data-sector="02">
+      <div class="container">
+        <div class="sector-badge" data-reveal>
+          <span class="badge-num">SECTOR 02</span>
+          <span class="badge-sep">/</span>
+          <span class="badge-label">NLP · DENSE VECTOR INFORMATION RETRIEVAL</span>
+        </div>
+
+        <div class="sector-grid">
+          <div class="sector-info" data-reveal>
+            <h2 class="sector-title">Transformer-Based Semantic Retrieval</h2>
+            <p class="sector-tagline">
+              Neural vector search overcoming lexical keyword failure through fine-tuned bi-encoders and FAISS indexing.
+            </p>
+
+            <ul class="sector-highlights">
+              <li>
+                <strong>Solving Vocabulary Mismatch:</strong> Traditional BM25 keyword matching fails when user queries share no tokens with target answers (e.g., matching "cardiovascular health" to "heart fitness").
+              </li>
+              <li>
+                <strong>Bi-Encoder &amp; MNR Loss:</strong> Fine-tuned DistilBERT with Multiple Negatives Ranking Loss (MNRL) using in-batch negatives ($B=128$) on Quora Question Pairs.
+              </li>
+              <li>
+                <strong>768-D Hyperspherical Normalization:</strong> Projected token embeddings into an $L_2$-normalized dense hypersphere where Inner Product equals Cosine Similarity.
+              </li>
+              <li>
+                <strong>Sub-Millisecond FAISS Index:</strong> Indexed vectors using <code>FAISS IndexFlatIP</code> yielding 92.1% Recall@5 and 0.842 Mean Reciprocal Rank (MRR).
+              </li>
+            </ul>
+
+            <!-- Metrics Matrix -->
+            <div class="metrics-grid">
+              <div class="metric-card">
+                <span class="m-val text-indigo">92.1%</span>
+                <span class="m-lbl">Recall@5 Score</span>
+              </div>
+              <div class="metric-card">
+                <span class="m-val text-indigo">0.842</span>
+                <span class="m-lbl">Mean Reciprocal Rank</span>
+              </div>
+              <div class="metric-card">
+                <span class="m-val text-indigo">0.42 ms</span>
+                <span class="m-lbl">Retrieval Latency</span>
+              </div>
+              <div class="metric-card">
+                <span class="m-val text-indigo">768-D</span>
+                <span class="m-lbl">Dense Embedding</span>
+              </div>
+            </div>
+
+            <div class="sector-actions">
+              <button class="btn-primary" data-open-modal="semantic-retrieval" data-cursor-text="CODE">
+                INSPECT ARCHITECTURE &amp; CODE
+              </button>
+              <a href="https://github.com/brolydas/Transformer-Based-Semantic-Retrieval-System" target="_blank" rel="noopener noreferrer" class="btn-secondary" data-cursor-text="GITHUB">
+                VIEW GITHUB REPO ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Interactive Simulator: Semantic vs Lexical Playground -->
+          <div class="sector-interactive" id="semantic-playground" data-reveal>
+            <div class="simulator-card">
+              <div class="simulator-card__header">
+                <div class="sim-title">
+                  <span class="sim-indicator bg-indigo"></span>
+                  <span>SEMANTIC BI-ENCODER VS BM25 LEXICAL PLAYGROUND</span>
+                </div>
+                <span class="telemetry-pill">FAISS INDEXFLATIP · 768-D</span>
+              </div>
+
+              <!-- Presets -->
+              <div class="simulator-tabs">
+                <button class="tab-btn is-active" data-query-btn="0">Cardiovascular Fitness</button>
+                <button class="tab-btn" data-query-btn="1">Prevent Overfitting</button>
+                <button class="tab-btn" data-query-btn="2">Quitting Smoking</button>
+              </div>
+
+              <!-- Custom query input -->
+              <div class="custom-query-bar">
+                <input type="text" id="custom-semantic-input" placeholder="Type custom semantic query (e.g. how to accelerate inference)..." />
+                <button id="custom-semantic-btn" class="btn-action" data-cursor-text="ENCODE">ENCODE &amp; RETRIEVE</button>
+              </div>
+
+              <div class="query-preview">
+                <span class="lbl">ACTIVE QUERY:</span>
+                <span class="query-text" data-sem-query>"What are effective protocols to improve cardiovascular fitness?"</span>
+              </div>
+
+              <!-- Comparison Row -->
+              <div class="comparison-grid">
+                <!-- Semantic Bi-Encoder Box -->
+                <div class="comp-box comp-semantic">
+                  <div class="comp-header">
+                    <span class="comp-title text-indigo">NEURAL BI-ENCODER (OURS)</span>
+                    <span class="comp-score text-indigo" data-sem-score>0.94</span>
+                  </div>
+                  <div class="telemetry-bar-wrap">
+                    <div class="telemetry-bar-fill bg-indigo" data-sem-bar style="width: 94%;"></div>
+                  </div>
+                  <p class="comp-match" data-sem-match>
+                    Aerobic exercise routines and high-intensity interval training for heart health
+                  </p>
+                  <span class="comp-tag tag-success">EXACT CONCEPTUAL MATCH</span>
+                </div>
+
+                <!-- BM25 Lexical Box -->
+                <div class="comp-box comp-bm25">
+                  <div class="comp-header">
+                    <span class="comp-title text-red">TRADITIONAL BM25 KEYWORD</span>
+                    <span class="comp-score text-red" data-bm25-score>0.12</span>
+                  </div>
+                  <div class="telemetry-bar-wrap">
+                    <div class="telemetry-bar-fill bg-red" data-bm25-bar style="width: 12%;"></div>
+                  </div>
+                  <p class="comp-match" data-bm25-match>
+                    Fitness protocols and gym memberships in downtown Austin
+                  </p>
+                  <span class="comp-tag tag-fail">VOCABULARY MISMATCH FAILURE</span>
+                </div>
+              </div>
+
+              <!-- 2D Vector Projection Canvas -->
+              <div class="vector-canvas-wrap">
+                <canvas id="vector-canvas" width="560" height="240"></canvas>
+                <div class="analysis-box">
+                  <span class="analysis-label">LATENT MANIFOLD ANALYSIS:</span>
+                  <p class="analysis-text" data-sem-analysis></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTOR 03: MULTIMODAL IMAGE-TEXT SEARCH ENGINE -->
+    <section class="sector-section" id="sector-multimodal" data-sector="03">
+      <div class="container">
+        <div class="sector-badge" data-reveal>
+          <span class="badge-num">SECTOR 03</span>
+          <span class="badge-sep">/</span>
+          <span class="badge-label">MULTIMODAL AI · CROSS-MODAL LATENT RETRIEVAL</span>
+        </div>
+
+        <div class="sector-grid">
+          <div class="sector-info" data-reveal>
+            <h2 class="sector-title">Multimodal Image-Text Search Engine</h2>
+            <p class="sector-tagline">
+              Zero-shot cross-modal retrieval mapping natural language prompts and visual representations into a joint 512-D latent space.
+            </p>
+
+            <ul class="sector-highlights">
+              <li>
+                <strong>Joint Latent Manifold:</strong> Leveraged OpenAI CLIP (ViT-B/32) vision and text transformers to project text queries and MS-COCO images into a shared normalized 512-dimensional embedding space.
+              </li>
+              <li>
+                <strong>OOM-Safe Batched Inference:</strong> Designed chunked tensor streaming (64 images/batch) allowing seamless scaling from 5,000 images to 118,000+ uncompressed items without CUDA Out-Of-Memory exceptions.
+              </li>
+              <li>
+                <strong>Sub-Millisecond Vector Search:</strong> Implemented GPU-accelerated FAISS inner-product index retrieving nearest semantic matches in under 0.78ms.
+              </li>
+              <li>
+                <strong>Interactive Streamlit Interface:</strong> Deployed cross-modal interactive search application with dynamic confidence scores and top-k image gallery.
+              </li>
+            </ul>
+
+            <!-- Metrics Matrix -->
+            <div class="metrics-grid">
+              <div class="metric-card">
+                <span class="m-val text-amber">&lt;0.78 ms</span>
+                <span class="m-lbl">Retrieval Latency</span>
+              </div>
+              <div class="metric-card">
+                <span class="m-val text-amber">118k+</span>
+                <span class="m-lbl">Batching Scalability</span>
+              </div>
+              <div class="metric-card">
+                <span class="m-val text-amber">512-D</span>
+                <span class="m-lbl">Shared Latent Space</span>
+              </div>
+              <div class="metric-card">
+                <span class="m-val text-amber">88.6%</span>
+                <span class="m-lbl">Zero-Shot Precision</span>
+              </div>
+            </div>
+
+            <div class="sector-actions">
+              <button class="btn-primary" data-open-modal="multimodal-search" data-cursor-text="CODE">
+                INSPECT ARCHITECTURE &amp; CODE
+              </button>
+              <a href="https://github.com/brolydas/Multimodal-Search-Engine" target="_blank" rel="noopener noreferrer" class="btn-secondary" data-cursor-text="GITHUB">
+                VIEW GITHUB REPO ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Interactive Simulator: Multimodal Radar -->
+          <div class="sector-interactive" id="multimodal-simulator" data-reveal>
+            <div class="simulator-card">
+              <div class="simulator-card__header">
+                <div class="sim-title">
+                  <span class="sim-indicator bg-amber"></span>
+                  <span>CROSS-MODAL LATENT RADAR (CLIP VIT-B/32 + FAISS)</span>
+                </div>
+                <span class="telemetry-pill">SHARED 512-D UNIT SPHERE</span>
+              </div>
+
+              <!-- Presets -->
+              <div class="simulator-tabs">
+                <button class="tab-btn is-active" data-prompt-btn="0">GPU Cluster</button>
+                <button class="tab-btn" data-prompt-btn="1">Cellular Histology</button>
+                <button class="tab-btn" data-prompt-btn="2">Cosmic Nebula</button>
+                <button class="tab-btn" data-prompt-btn="3">Vintage Sports Car</button>
+              </div>
+
+              <!-- Custom prompt input -->
+              <div class="custom-query-bar">
+                <input type="text" id="custom-mm-input" placeholder="Type cross-modal visual description prompt..." />
+                <button id="custom-mm-btn" class="btn-action" data-cursor-text="PROJECT">PROJECT LATENT SPACE</button>
+              </div>
+
+              <!-- Cross-modal Radar Display -->
+              <div class="radar-display-grid">
+                <div class="radar-canvas-wrap">
+                  <canvas id="clip-radar-canvas" width="340" height="300"></canvas>
+                  <span class="radar-subtext">DUAL ENCODER PROJECTION GEOMETRY</span>
+                </div>
+
+                <div class="radar-info-panel">
+                  <div class="telemetry-row">
+                    <span class="lbl">ACTIVE PROMPT:</span>
+                    <span class="val text-amber" data-mm-prompt>"High-performance GPU cluster racks glowing with cyan telemetry lights"</span>
+                  </div>
+                  <div class="telemetry-row">
+                    <span class="lbl">COSINE SIMILARITY:</span>
+                    <span class="val text-amber" data-mm-sim>88.4%</span>
+                  </div>
+                  <div class="telemetry-bar-wrap">
+                    <div class="telemetry-bar-fill bg-amber" data-mm-bar style="width: 88.4%;"></div>
+                  </div>
+                  <div class="telemetry-row">
+                    <span class="lbl">DATASET CATEGORY:</span>
+                    <span class="val" data-mm-category>Datacenter Architecture</span>
+                  </div>
+                  <div class="telemetry-row">
+                    <span class="lbl">RETRIEVED IMAGE SCENE:</span>
+                    <span class="val-desc" data-mm-desc>Dense server blades with liquid cooling tubes and optical interconnects</span>
+                  </div>
+
+                  <div class="features-box">
+                    <span class="features-label">LATENT SEMANTIC TAGS:</span>
+                    <div class="features-tags" data-mm-tags></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARCHITECTURAL SYNTHESIS SECTION -->
+    <section class="synthesis-section" id="synthesis">
+      <div class="container">
+        <div class="sector-kicker" data-reveal>
+          <span class="kicker-pulse"></span>
+          <span>CROSS-SYSTEM BENCHMARK MATRIX</span>
+        </div>
+        <h2 class="synthesis-title" data-reveal>Comprehensive System Telemetry</h2>
+
+        <div class="table-wrap" data-reveal>
+          <table class="telemetry-table">
+            <thead>
+              <tr>
+                <th>ARCHITECTURE</th>
+                <th>CORE ENGINE</th>
+                <th>METRIC SPACE</th>
+                <th>INFERENCE LATENCY</th>
+                <th>MEMORY EFFICIENCY</th>
+                <th>REPOSITORIES</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>High-Performance CNN</strong></td>
+                <td>EfficientNet-B0 + AMP</td>
+                <td>Logits Cross-Entropy (5 classes)</td>
+                <td><span class="badge-metric text-emerald">1.84 ms (FP16)</span></td>
+                <td>-48% VRAM reduction (1.82 GB)</td>
+                <td><a href="https://github.com/brolydas/High-Performance-CNN" target="_blank" class="table-link">brolydas/High-Performance-CNN ↗</a></td>
+              </tr>
+              <tr>
+                <td><strong>Transformer Semantic Retrieval</strong></td>
+                <td>DistilBERT Bi-Encoder</td>
+                <td>768-D Hypersphere Inner Product</td>
+                <td><span class="badge-metric text-indigo">&lt;0.42 ms</span></td>
+                <td>FAISS IndexFlatIP / IVFFlat</td>
+                <td><a href="https://github.com/brolydas/Transformer-Based-Semantic-Retrieval-System" target="_blank" class="table-link">brolydas/Transformer-Based-Semantic-Retrieval-System ↗</a></td>
+              </tr>
+              <tr>
+                <td><strong>Multimodal Search Engine</strong></td>
+                <td>CLIP ViT-B/32 Vision-Language</td>
+                <td>512-D Joint Latent Manifold</td>
+                <td><span class="badge-metric text-amber">&lt;0.78 ms</span></td>
+                <td>Chunked 64-item batches (OOM safe)</td>
+                <td><a href="https://github.com/brolydas/Multimodal-Search-Engine" target="_blank" class="table-link">brolydas/Multimodal-Search-Engine ↗</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Engineer Profile Card -->
+        <div class="engineer-card" data-reveal>
+          <div class="engineer-card__bio">
+            <span class="engineer-tag">SYSTEM ARCHITECT</span>
+            <h3 class="engineer-name">Tharun Rongala</h3>
+            <p class="engineer-desc">
+              AI Engineer specializing in accelerated deep learning pipelines, dense vector retrieval, and multi-agent systems. Based at National Institute of Technology, Raipur.
+            </p>
+            <div class="engineer-links">
+              <a href="https://github.com/brolydas" target="_blank" rel="noopener noreferrer" class="btn-primary" data-cursor-text="GITHUB">
+                GITHUB / BROLYDAS
+              </a>
+              <a href="https://brolydas.github.io/TharunRongalaPortfolio/" target="_blank" rel="noopener noreferrer" class="btn-secondary" data-cursor-text="PORTFOLIO">
+                OFFICIAL PORTFOLIO ↗
+              </a>
+              <a href="mailto:tharunr8533@gmail.com" class="btn-secondary" data-cursor-text="EMAIL">
+                THARUNR8533@GMAIL.COM
+              </a>
+            </div>
+          </div>
+          <div class="engineer-card__telemetry">
+            <div class="telem-item">
+              <span class="telem-key">GITHUB STATUS:</span>
+              <span class="telem-val text-emerald">VERIFIED &amp; SYNCED</span>
+            </div>
+            <div class="telem-item">
+              <span class="telem-key">HOSTING TARGET:</span>
+              <span class="telem-val text-indigo">VERCEL EDGE (PRODUCTION READY)</span>
+            </div>
+            <div class="telem-item">
+              <span class="telem-key">DESIGN RUBRIC:</span>
+              <span class="telem-val text-amber">AWWWARDS SOTD STANDARD</span>
+            </div>
+            <div class="telem-item">
+              <span class="telem-key">CODE BASE:</span>
+              <span class="telem-val">100% MODULAR &amp; OPEN SOURCE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__copy">
+        <span>© 2026 THARUN RONGALA · ALL RIGHTS RESERVED</span>
+        <span class="footer__sep">|</span>
+        <span>DEPLOYABLE TO VERCEL VIA GITHUB CI/CD</span>
+      </div>
+      <div class="footer__meta">
+        <a href="#overview" class="btn-top" data-cursor-text="TOP">BACK TO APEX ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Architecture & Code Inspection Drawer Modal -->
+  <div class="code-modal" data-code-modal aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+    <div class="code-modal__backdrop" data-modal-backdrop></div>
+    <div class="code-modal__drawer">
+      <div class="code-modal__header">
+        <div>
+          <span class="code-modal__kicker">SYSTEM ARCHITECTURE &amp; SOURCE CODE</span>
+          <h3 id="modal-title" class="code-modal__title" data-modal-title>System Architecture</h3>
+          <p class="code-modal__tagline" data-modal-tagline>Architecture specifications</p>
+        </div>
+        <button class="btn-close" data-modal-close aria-label="Close modal" data-cursor-text="CLOSE">✕</button>
+      </div>
+
+      <div class="code-modal__body">
+        <div class="modal-section">
+          <span class="modal-section-title">TECHNOLOGY STACK:</span>
+          <div class="modal-tags" data-modal-tech></div>
+        </div>
+
+        <div class="modal-section">
+          <span class="modal-section-title">HYPER-PARAMETERS &amp; PIPELINE ARCHITECTURE:</span>
+          <div class="modal-arch-grid" data-modal-arch></div>
+        </div>
+
+        <div class="modal-section">
+          <div class="code-snippet-header">
+            <span class="modal-section-title">PYTORCH IMPLEMENTATION SNIPPET:</span>
+            <span class="badge-hud">PYTHON 3.10+</span>
+          </div>
+          <pre class="code-block"><code data-modal-code># Loading code snippet...</code></pre>
+        </div>
+      </div>
+
+      <div class="code-modal__footer">
+        <a href="#" target="_blank" rel="noopener noreferrer" class="btn-primary" data-modal-github data-cursor-text="GITHUB">
+          VIEW REPOSITORY ON GITHUB ↗
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
